@@ -3,31 +3,65 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+    --foreground-rgb: 0, 0, 0;
+    --background-start-rgb: 214, 219, 220;
+    --background-end-rgb: 255, 255, 255;
+    --color-primary: #ff6464;
+    --color-secondary: #00a8cc;
+    --color-dark: #21243d;
+    --color-light: #8695a4;
+
+    --color-primary--hover: #e13c3c;
+
+    /*  fonts*/
+    --font-sm: 12px;
+    --font-md: 14px;
+    --font-lg: 16px;
+
+    /*    spacings*/
+    --spacing-xs: 5px;
+    --spacing-sm: 10px;
+    --spacing-md: 20px;
+    --spacing-lg: 40px;
+
+    /*    button padding*/
+    --button-padding-sm: 10px 16px;
+    --button-padding-md: 11px 20px;
+    --button-padding-lg: 12px 24px;
+
+    /*    background colors*/
+    --section-color-background: #edf7fa;
+
+    /*    card component*/
+    --card-border-radius: 5px;
+    /*    badge */
+    --badge-border-radius: 99999px;
+
+    /*    topbar */
+    --topbar-font-size: var(--font-md);
+    --topbar-menu-items-gap: var(--spacing-md);
+
+    /*    site container*/
+    --padding-sm: 2rem;
+    --padding-md: 4rem;
+    --padding-lg: 6rem;
+
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+    :root {
+        --foreground-rgb: 255, 255, 255;
+        --background-start-rgb: 0, 0, 0;
+        --background-end-rgb: 0, 0, 0;
+    }
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    background-color: #ffffff;
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+    .text-balance {
+        text-wrap: balance;
+    }
 }
