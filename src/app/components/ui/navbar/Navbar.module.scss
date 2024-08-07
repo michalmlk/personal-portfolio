@@ -1,0 +1,13 @@
+.wrapper {
+  position: fixed;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  height: var(--topbar-height);
+  gap: var(--topbar-menu-items-gap);
+  backdrop-filter: blur(10px);
+  padding: var(--spacing-xs) var(--spacing-md);
+  font-weight: bold;
+  color: var(--color-dark);
+}

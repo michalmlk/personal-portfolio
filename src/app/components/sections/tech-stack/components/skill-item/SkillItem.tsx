@@ -1,11 +1,21 @@
+"use client"
+
 import {ReactElement} from "react";
 import styles from './SkillItem.module.scss';
-import Image from "next/image";
+import Image, {StaticImageData} from "next/image";
 
-export default function SkillItem({image, label}: { image: any, label: string }): ReactElement {
+interface SkillItemProps {
+    icon: StaticImageData | string;
+    label: string;
+    isPinned?: boolean;
+}
+
+export default function SkillItem({icon, label, isPinned = false}: SkillItemProps): ReactElement {
+    const size = isPinned ? 120 : 60;
+
     return (
         <div className={styles.wrapper}>
-            <Image src={image} alt={label} width={130} height={130}/>
+            <Image src={icon} alt={label} width={size} height={size}/>
             <h2>{label}</h2>
         </div>
     )

@@ -48,7 +48,7 @@ export const StyledProjectsList = styled.div`
 
 export default function ProjectsSection(): ReactElement {
     return (
-        <StyledProjectsSectionWrapper>
+        <StyledProjectsSectionWrapper id="projects">
             <h1 className="text-4xl text-transparent font-extrabold mb-2 bg-clip-text bg-gradient-to-r from-primary to-secondary"
                 style={{color: 'transparent'}}>Projects</h1>
             <StyledProjectsList>

@@ -1,31 +1,24 @@
 "use client"
 
-import {ReactElement} from "react";
+import {ReactElement, useState} from "react";
 import {useMobileView} from "@/app/hooks/useMobileView";
+import styles from "./Navbar.module.scss";
+
+
+const scrollToElement = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) {
+        window.scrollTo(0, el.offsetTop - 70);
+    }
+}
 
 function DesktopNavbar(): ReactElement {
     return (
         <>
-            <div className="w-full flex fixed justify-end items-center px-2 backdrop-blur">
-                <div className="relative flex h-16 items-center justify-between">
-                    <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-                        <div className="hidden sm:ml-6 sm:block">
-                            <div className="flex space-x-4">
-                                <a href="#" className="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white"
-                                   aria-current="page">About</a>
-                                <a href="#"
-                                   className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Projects</a>
-                                <a href="#"
-                                   className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Stack</a>
-                                <a href="#"
-                                   className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Contact</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div
-                        className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                    </div>
-                </div>
+            <div className={styles.wrapper}>
+                <button onClick={() => scrollToElement('about')}>About</button>
+                <button onClick={() => scrollToElement('projects')}>Projects</button>
+                <button onClick={() => scrollToElement('tech-stack')}>Tech stack</button>
             </div>
         </>
     )
