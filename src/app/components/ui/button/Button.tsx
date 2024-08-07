@@ -1,7 +1,7 @@
 "use client"
 
 import React, {FC, ReactElement} from "react";
-import {StyledButton} from "@/app/components/Button/Button.styles"
+import {StyledButton} from "@/app/components/ui/button/Button.styles"
 
 
 export interface ButtonProps {

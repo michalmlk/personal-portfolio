@@ -20,5 +20,6 @@ export const StyledButton = styled.button<{
     &:hover {
         background-color: ${(props) => props.outlined ? '#ffffff' : props.primary ? `var(--color-primary--hover)` : `var(--color-secondary--hover)`};
         transition: background-color 0.2s ease;
+        color: ${(props) => props.primary ? `var(--color-primary--hover)` : `var(--color-secondary--hover)`};
     }
 `

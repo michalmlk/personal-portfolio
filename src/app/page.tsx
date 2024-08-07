@@ -1,11 +1,17 @@
-import HeroSection from "@/app/components/HeroSection";
-import CVSection from "@/app/components/CVSection";
+import Hero from "@/app/components/hero/Hero";
+import CVSection from "@/app/components/sections/cv-section/CVSection";
+import ProjectsSection from "@/app/components/sections/ProjectsSection";
+import Navbar from "@/app/components/ui/navbar/Navbar";
+import TechStackSection from "@/app/components/sections/tech-stack/TechStackSection";
 
 export default function Home() {
     return (
         <main className="flex min-h-screen flex-col">
-            <HeroSection/>
+            <Navbar/>
+            <Hero/>
             <CVSection/>
+            <ProjectsSection/>
+            <TechStackSection/>
         </main>
     );
 }

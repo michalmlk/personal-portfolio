@@ -3,6 +3,12 @@
 @tailwind utilities;
 
 :root {
+
+    /*breakpoints*/
+    --mobile-breakpoint: 580px;
+    --tablet: 768px;
+    --desktop: 1024px;
+
     --foreground-rgb: 0, 0, 0;
     --background-start-rgb: 214, 219, 220;
     --background-end-rgb: 255, 255, 255;
@@ -10,6 +16,9 @@
     --color-secondary: #00a8cc;
     --color-dark: #21243d;
     --color-light: #8695a4;
+    --color-bg-light: #edf7fa;
+
+    --section-padding: 1rem 2rem;
 
     --color-primary--hover: #e13c3c;
 
@@ -40,6 +49,7 @@
     /*    topbar */
     --topbar-font-size: var(--font-md);
     --topbar-menu-items-gap: var(--spacing-md);
+    --topbar-height: 70px;
 
     /*    site container*/
     --padding-sm: 2rem;
