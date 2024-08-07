@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import {useState, useEffect} from "react";
+import { useState, useEffect } from 'react';
 
 export const useMobileView = () => {
     const [isMobileView, setIsMobileView] = useState(false);
 
     useEffect(() => {
-        window.addEventListener("resize", () => {
+        window.addEventListener('resize', () => {
             if (window.innerWidth < 580) {
                 setIsMobileView(true);
             } else {
@@ -15,8 +15,7 @@ export const useMobileView = () => {
         });
     }, [isMobileView]);
 
-
     return {
         isMobileView,
-    }
-}
+    };
+};

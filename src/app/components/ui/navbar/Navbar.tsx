@@ -1,16 +1,15 @@
-"use client"
+'use client';
 
-import {ReactElement, useState} from "react";
-import {useMobileView} from "@/app/hooks/useMobileView";
-import styles from "./Navbar.module.scss";
-
+import { ReactElement, useState } from 'react';
+import { useMobileView } from '@/app/hooks/useMobileView';
+import styles from './Navbar.module.scss';
 
 const scrollToElement = (id: string) => {
     const el = document.getElementById(id);
     if (el) {
         window.scrollTo(0, el.offsetTop - 70);
     }
-}
+};
 
 function DesktopNavbar(): ReactElement {
     return (
@@ -21,14 +20,11 @@ function DesktopNavbar(): ReactElement {
                 <button onClick={() => scrollToElement('tech-stack')}>Tech stack</button>
             </div>
         </>
-    )
+    );
 }
 
 export default function Navbar(): ReactElement {
+    const { isMobileView } = useMobileView();
 
-    const {isMobileView} = useMobileView();
-
-    return (
-        isMobileView ? <h1>mobile</h1> : <DesktopNavbar/>
-    )
+    return isMobileView ? <h1>mobile</h1> : <DesktopNavbar />;
 }

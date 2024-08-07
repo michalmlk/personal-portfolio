@@ -1,6 +1,6 @@
-import Image from "next/image";
-import {ReactElement} from "react";
-import styled from "styled-components";
+import Image from 'next/image';
+import { ReactElement } from 'react';
+import styled from 'styled-components';
 
 export interface ProjectItem {
     title: string;
@@ -14,42 +14,40 @@ export const StyledProjectWrapper = styled.div`
     background-color: #fff;
     padding: 1rem;
     border-radius: var(--card-border-radius);
-    
+
     display: grid;
-    grid-template-areas: "title title"
-    "divider divider"
-                         "image image"
-                         "description description";
-    
+    grid-template-areas:
+        'title title'
+        'divider divider'
+        'image image'
+        'description description';
+
     width: 100%;
     grid-row-gap: 1rem;
-    
+
     hr {
         grid-area: divider;
         border-top: 1px solid #000000;
     }
-    
+
     h1 {
-        grid-area: title
+        grid-area: title;
     }
-    
+
     p {
         grid-area: description;
     }
-    
 `;
 
-
 export default function ProjectItem(project: ProjectItem): ReactElement {
-    const {title, description, image, url} = project;
+    const { title, description, image, url } = project;
 
     return (
         <StyledProjectWrapper>
-            <h1 className="text-lg font-extrabold">{title}</h1>
+            <h1 className='text-lg font-extrabold'>{title}</h1>
             <hr />
-            <p className="text-sm">{description}</p>
-            <Image src={image} alt="test" width={200} height={100}/>
+            <p className='text-sm'>{description}</p>
+            <Image src={image} alt='test' width={200} height={100} />
         </StyledProjectWrapper>
-    )
-
+    );
 }

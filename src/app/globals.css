@@ -3,7 +3,6 @@
 @tailwind utilities;
 
 :root {
-
     /*breakpoints*/
     --mobile-breakpoint: 580px;
     --tablet: 768px;
@@ -18,7 +17,7 @@
     --color-light: #8695a4;
     --color-bg-light: #edf7fa;
 
-    --section-padding: 1rem 2rem;
+    --section-padding: var(--spacing-lg) var(--spacing-md);
 
     --color-primary--hover: #e13c3c;
 
@@ -55,7 +54,6 @@
     --padding-sm: 2rem;
     --padding-md: 4rem;
     --padding-lg: 6rem;
-
 }
 
 @media (prefers-color-scheme: dark) {

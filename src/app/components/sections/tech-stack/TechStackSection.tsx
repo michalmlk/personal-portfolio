@@ -1,18 +1,17 @@
-"use client"
+'use client';
 
-import {ReactElement, ReactNode, Suspense} from "react";
+import { ReactElement, ReactNode, Suspense } from 'react';
 import styles from './TechStackSection.module.scss';
-import ShowMoreComponent
-    from "@/app/components/sections/tech-stack/components/show-more-component/ShowMoreComponent";
-import SkillItem from "@/app/components/sections/tech-stack/components/skill-item/SkillItem";
-import {StaticImageData} from "next/image";
-import typescriptIcon from "../../../../../public/ts-logo-512.svg";
-import reactIcon from "../../../../../public/react-logo.svg";
-import styledComponentsIcon from "../../../../../public/styled-components-logo.svg";
-import nodeJsIcon from "../../../../../public/nodejs-logo.svg";
-import nextJsIcon from "../../../../../public/next.svg";
-import muiIcon from "../../../../../public/mui-logo.svg";
-import prismaIcon from "../../../../../public/prisma-logo.svg";
+import { ShowMoreComponent } from '@/app/components/ui/show-more-component/ShowMoreComponent';
+import SkillItem from '@/app/components/sections/tech-stack/components/skill-item/SkillItem';
+import { StaticImageData } from 'next/image';
+import typescriptIcon from '../../../../../public/ts-logo-512.svg';
+import reactIcon from '../../../../../public/react-logo.svg';
+import styledComponentsIcon from '../../../../../public/styled-components-logo.svg';
+import nodeJsIcon from '../../../../../public/nodejs-logo.svg';
+import nextJsIcon from '../../../../../public/next.svg';
+import muiIcon from '../../../../../public/mui-logo.svg';
+import prismaIcon from '../../../../../public/prisma-logo.svg';
 
 interface SkillItemProps {
     image: StaticImageData | string;
@@ -22,51 +21,49 @@ interface SkillItemProps {
 
 const skillItems: SkillItemProps[] = [
     {
-        label: "Typescript",
+        label: 'Typescript',
         icon: typescriptIcon,
         isPinned: true,
     },
     {
-        label: "React",
+        label: 'React',
         icon: reactIcon,
         isPinned: true,
     },
     {
-        label: "styled-components",
+        label: 'styled-components',
         icon: styledComponentsIcon,
         isPinned: true,
     },
     {
-        label: "Node.js",
+        label: 'Node.js',
         icon: nodeJsIcon,
     },
     {
-        label: "Next.js",
-        icon: nextJsIcon
+        label: 'Next.js',
+        icon: nextJsIcon,
     },
     {
-        label: "Material UI",
-        icon: muiIcon
+        label: 'Material UI',
+        icon: muiIcon,
     },
     {
-        label: "Prisma",
+        label: 'Prisma',
         icon: prismaIcon,
-    }
+    },
 ];
 
-
-const renderSkillItem = ({label, icon, isPinned}: SkillItemProps): ReactNode => {
-    return (
-        <SkillItem icon={icon} label={label} isPinned={isPinned}/>
-    )
-}
+const renderSkillItem = ({ label, icon, isPinned }: SkillItemProps): ReactNode => {
+    return <SkillItem icon={icon} label={label} isPinned={isPinned} />;
+};
 
 export default function TechStackSection(): ReactElement {
     return (
-        <div className={styles.wrapper} id="tech-stack">
-            <h1 className="text-4xl text-transparent font-extrabold mb-2 bg-clip-text bg-gradient-to-r from-primary to-secondary"
-            >Tech stack</h1>
-            <ShowMoreComponent items={skillItems} renderItem={renderSkillItem}/>
-        </div>
-    )
+        <section className={styles.wrapper} id='tech-stack'>
+            <h1 className='text-transparent mb-2 bg-gradient-to-r from-primary to-secondary bg-clip-text text-4xl font-extrabold'>
+                Tech stack
+            </h1>
+            <ShowMoreComponent items={skillItems} renderItem={renderSkillItem} />
+        </section>
+    );
 }

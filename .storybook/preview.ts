@@ -1,7 +1,7 @@
-import type {Preview} from "@storybook/react";
+import type { Preview } from '@storybook/react';
 
-import {withThemeByClassName, withThemeFromJSXProvider} from "@storybook/addon-themes";
-import {createGlobalStyle, ThemeProvider} from "styled-components";
+import { withThemeByClassName, withThemeFromJSXProvider } from '@storybook/addon-themes';
+import { createGlobalStyle, ThemeProvider } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
     body {
@@ -19,17 +19,19 @@ const preview: Preview = {
         },
     },
 
-    decorators: [withThemeByClassName({
-        themes: {
-            // nameOfTheme: 'classNameForTheme',
-            light: '',
-            dark: 'dark',
-        },
-        defaultTheme: 'light',
-    }), withThemeFromJSXProvider({
-        GlobalStyles,
-        Provider: ThemeProvider
-    })]
+    decorators: [
+        withThemeByClassName({
+            themes: {
+                light: '',
+                dark: 'dark',
+            },
+            defaultTheme: 'light',
+        }),
+        withThemeFromJSXProvider({
+            GlobalStyles,
+            Provider: ThemeProvider,
+        }),
+    ],
 };
 
 export default preview;

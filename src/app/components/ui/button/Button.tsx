@@ -1,8 +1,7 @@
-"use client"
+'use client';
 
-import React, {FC, ReactElement} from "react";
-import {StyledButton} from "@/app/components/ui/button/Button.styles"
-
+import React, { FC, ReactElement } from 'react';
+import { StyledButton } from '@/app/components/ui/button/Button.styles';
 
 export interface ButtonProps {
     primary?: boolean;
@@ -14,17 +13,16 @@ export interface ButtonProps {
 }
 
 export const Button: FC<ButtonProps> = ({
-                                            primary = false,
-                                            disabled = false,
-                                            outlined = false,
-                                            size,
-                                            label,
-                                            onClick
-                                        }): ReactElement => {
-
+    primary = false,
+    disabled = false,
+    outlined = false,
+    size,
+    label,
+    onClick,
+}): ReactElement => {
     return (
         <StyledButton
-            type="button"
+            type='button'
             className={'shared-button'}
             size={size}
             primary={primary}
