@@ -32,10 +32,13 @@
     --spacing-md: 20px;
     --spacing-lg: 40px;
 
-    /*    button padding*/
+    /*    button */
     --button-padding-sm: 10px 16px;
     --button-padding-md: 11px 20px;
     --button-padding-lg: 12px 24px;
+
+    --button-color-bg-disabled: #dfdfdf;
+    --button-color-font-disabled: #afafaf;
 
     /*    background colors*/
     --section-color-background: #edf7fa;

@@ -12,23 +12,17 @@ export interface ProjectItem {
 export const StyledProjectWrapper = styled.div`
     flex-grow: 1;
     background-color: #fff;
-    padding: 1rem;
-    border-radius: var(--card-border-radius);
+    border-bottom: 1px solid #000000;
+    padding: var(--spacing-md);
 
     display: grid;
     grid-template-areas:
-        'title title'
-        'divider divider'
-        'image image'
-        'description description';
+        'image title'
+        'image details'
+        'image description';
 
     width: 100%;
     grid-row-gap: 1rem;
-
-    hr {
-        grid-area: divider;
-        border-top: 1px solid #000000;
-    }
 
     h1 {
         grid-area: title;
@@ -45,7 +39,6 @@ export default function ProjectItem(project: ProjectItem): ReactElement {
     return (
         <StyledProjectWrapper>
             <h1 className='text-lg font-extrabold'>{title}</h1>
-            <hr />
             <p className='text-sm'>{description}</p>
             <Image src={image} alt='test' width={200} height={100} />
         </StyledProjectWrapper>

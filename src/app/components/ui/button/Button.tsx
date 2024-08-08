@@ -5,7 +5,6 @@ import { StyledButton } from '@/app/components/ui/button/Button.styles';
 
 export interface ButtonProps {
     primary?: boolean;
-    outlined?: boolean;
     disabled?: boolean;
     size: 'sm' | 'md' | 'lg';
     label: string;
@@ -15,7 +14,6 @@ export interface ButtonProps {
 export const Button: FC<ButtonProps> = ({
     primary = false,
     disabled = false,
-    outlined = false,
     size,
     label,
     onClick,
@@ -28,7 +26,6 @@ export const Button: FC<ButtonProps> = ({
             primary={primary}
             onClick={onClick}
             disabled={disabled}
-            outlined={outlined}
         >
             {label}
         </StyledButton>

@@ -1,7 +1,18 @@
-import type { Preview } from '@storybook/react';
-
-import { withThemeByClassName, withThemeFromJSXProvider } from '@storybook/addon-themes';
+import { withThemeFromJSXProvider } from '@storybook/addon-themes';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
+import '../src/app/globals.css';
+
+const lightTheme = createGlobalStyle`
+    body {
+        color: red;
+    }
+`;
+
+const darkTheme = createGlobalStyle`
+    body {
+        color: #dfdfdf
+    }
+`;
 
 const GlobalStyles = createGlobalStyle`
     body {
@@ -9,29 +20,14 @@ const GlobalStyles = createGlobalStyle`
     }
 `;
 
-const preview: Preview = {
-    parameters: {
-        controls: {
-            matchers: {
-                color: /(background|color)$/i,
-                date: /Date$/i,
-            },
+export const decorators = [
+    withThemeFromJSXProvider({
+        themes: {
+            light: lightTheme,
+            dark: darkTheme,
         },
-    },
-
-    decorators: [
-        withThemeByClassName({
-            themes: {
-                light: '',
-                dark: 'dark',
-            },
-            defaultTheme: 'light',
-        }),
-        withThemeFromJSXProvider({
-            GlobalStyles,
-            Provider: ThemeProvider,
-        }),
-    ],
-};
-
-export default preview;
+        defaultTheme: 'light',
+        Provider: ThemeProvider,
+        GlobalStyles,
+    }),
+];
