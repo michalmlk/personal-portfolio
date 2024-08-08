@@ -5,7 +5,7 @@ import styles from './Hero.module.scss';
 
 export default function Hero(): ReactElement {
     return (
-        <section className={styles.wrapper}>
+        <section className={styles.wrapper} id='about'>
             <div className={styles.image}>
                 <Image src={avatar} alt='my photo' className='h-full max-w-fit' />
             </div>

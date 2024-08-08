@@ -14,9 +14,9 @@ import muiIcon from '../../../../../public/mui-logo.svg';
 import prismaIcon from '../../../../../public/prisma-logo.svg';
 
 interface SkillItemProps {
-    image: StaticImageData | string;
+    image: HTMLElement | string;
     label: string;
-    isPinned?: boolean;
+    isPinned: boolean;
 }
 
 const skillItems: SkillItemProps[] = [
@@ -38,18 +38,22 @@ const skillItems: SkillItemProps[] = [
     {
         label: 'Node.js',
         icon: nodeJsIcon,
+        isPinned: false,
     },
     {
         label: 'Next.js',
         icon: nextJsIcon,
+        isPinned: false,
     },
     {
         label: 'Material UI',
         icon: muiIcon,
+        isPinned: false,
     },
     {
         label: 'Prisma',
         icon: prismaIcon,
+        isPinned: false,
     },
 ];
 

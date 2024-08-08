@@ -45,7 +45,6 @@ export function ShowMoreComponent<T>({
                 size='sm'
                 label={showMore ? 'Show less' : 'Show more'}
                 onClick={handleShowMore}
-                outlined
             />
         </div>
     );
