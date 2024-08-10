@@ -1,0 +1,25 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: var(--topbar-height);
+  gap: 2rem;
+
+  @media screen and (min-width: 1024px) {
+    flex-direction: row-reverse;
+    gap: 4rem;
+  }
+
+  .image {
+    width: 256px;
+    height: 256px;
+    overflow: hidden;
+    border-radius: 9999px;
+  }
+
+  .heading {
+    margin-top: var(--spacing-sm);
+    text-align: center;
+  }
+}

@@ -1,0 +1,104 @@
+.desktopWrapper {
+  position: fixed;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  height: var(--topbar-height);
+  gap: var(--topbar-menu-items-gap);
+  backdrop-filter: blur(10px);
+  padding: var(--spacing-xs) var(--spacing-md);
+  font-weight: bold;
+
+  .navItem {
+    color: transparent;
+    background-image: linear-gradient(45deg, var(--color-secondary), var(--color-primary));
+    background-clip: text;
+    font-weight: 700;
+    background-size: 300%;
+    background-position: left;
+  }
+}
+
+.mobileWrapper {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: var(--topbar-height);
+  backdrop-filter: blur(10px);
+  padding: var(--spacing-xs) var(--spacing-md);
+  font-weight: bold;
+
+
+  .menuButton {
+    font-weight: lighter;
+    position: relative;
+    width: 40px;
+    height: 40px;
+
+    .buttonLine {
+      display: block;
+      position: absolute;
+      background-color: var(--color-dark);
+      height: 3px;
+      width: 100%;
+      top: calc(50% - 5px);
+      transition: .2s ease;
+
+      &::before {
+        content: '';
+        position: absolute;
+        display: block;
+        width: 100%;
+        top: 10px;
+        height: 3px;
+        background-color: var(--color-dark);
+        transition: .2s ease;
+      }
+    }
+
+    &.toggled {
+      .buttonLine {
+        top: calc(50%);
+        transform: rotate(45deg);
+
+        &::before {
+          top: 0;
+          transform: rotate(90deg);
+        }
+      }
+    }
+  }
+}
+
+.itemsList {
+  position: fixed;
+  margin-top: var(--topbar-height);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md);
+  backdrop-filter: blur(10px);
+  transform: translateY(-250px);
+  transition: .2s ease;
+
+  &.toggled {
+    transform: translateY(0);
+  }
+
+  .item {
+    font-size: var(--font-lg);
+    align-self: flex-start;
+    width: 100%;
+    text-align: start;
+    padding-bottom: var(--spacing-xs);
+    transition: .2s ease;
+
+    &:hover {
+      transform: translateX(10px);
+      color: var(--color-primary);
+    }
+  }
+}

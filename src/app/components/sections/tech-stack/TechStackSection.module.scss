@@ -1,0 +1,11 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--section-padding);
+  background-color: var(--color-bg-light);
+
+  h1 {
+    color: transparent;
+  }
+}
