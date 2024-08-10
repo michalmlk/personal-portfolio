@@ -34,19 +34,60 @@ function MobileNavbar(): ReactElement {
 
     const handleMenuOpen = () => setIsToggled((prev) => !prev);
     return (
-        <div className={styles.mobileWrapper}>
-            <button
-                onClick={handleMenuOpen}
-                className={`${styles.menuButton} ${isToggled ? styles.toggled : ''}`}
-            >
-                <span className={styles.buttonLine} />
-            </button>
-        </div>
+        <>
+            <div className={styles.mobileWrapper}>
+                <button
+                    onClick={handleMenuOpen}
+                    className={`${styles.menuButton} ${isToggled ? styles.toggled : ''}`}
+                >
+                    <span className={styles.buttonLine} />
+                </button>
+            </div>
+            <div className={`${styles.itemsList} ${isToggled ? styles.toggled : ''}`}>
+                <button
+                    className={styles.item}
+                    onClick={() => {
+                        setIsToggled(false);
+                        scrollToElement('about');
+                    }}
+                >
+                    About
+                </button>
+                <button
+                    className={styles.item}
+                    onClick={() => {
+                        setIsToggled(false);
+                        scrollToElement('tech-stack');
+                    }}
+                >
+                    Tech stack
+                </button>
+                <button
+                    className={styles.item}
+                    onClick={() => {
+                        setIsToggled(false);
+                        scrollToElement('projects');
+                    }}
+                >
+                    Projects
+                </button>
+                <button
+                    className={styles.item}
+                    onClick={() => {
+                        setIsToggled(false);
+                        scrollToElement('contact');
+                    }}
+                >
+                    Contact me!
+                </button>
+            </div>
+            )
+        </>
     );
 }
 
 export default function Navbar(): ReactElement {
     const { isMobileView } = useMobileView();
 
-    return <MobileNavbar />;
+    return isMobileView ? <MobileNavbar /> : <DesktopNavbar />;
 }
