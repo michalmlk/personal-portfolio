@@ -64,7 +64,7 @@ const renderSkillItem = ({ label, icon, isPinned }: SkillItemProps): ReactNode =
 export default function TechStackSection(): ReactElement {
     return (
         <section className={styles.wrapper} id='tech-stack'>
-            <h1 className='text-transparent mb-2 bg-gradient-to-r from-primary to-secondary bg-clip-text text-4xl font-extrabold'>
+            <h1 className='section-header'>
                 Tech stack
             </h1>
             <ShowMoreComponent items={skillItems} renderItem={renderSkillItem} />

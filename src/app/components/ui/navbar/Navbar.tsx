@@ -14,17 +14,39 @@ const scrollToElement = (id: string) => {
 function DesktopNavbar(): ReactElement {
     return (
         <>
-            <div className={styles.wrapper}>
-                <button onClick={() => scrollToElement('about')}>About</button>
-                <button onClick={() => scrollToElement('projects')}>Projects</button>
-                <button onClick={() => scrollToElement('tech-stack')}>Tech stack</button>
+            <div className={styles.desktopWrapper}>
+                <button className={styles.navItem} onClick={() => scrollToElement('about')}>
+                    About
+                </button>
+                <button className={styles.navItem} onClick={() => scrollToElement('projects')}>
+                    Projects
+                </button>
+                <button className={styles.navItem} onClick={() => scrollToElement('tech-stack')}>
+                    Tech stack
+                </button>
             </div>
         </>
+    );
+}
+
+function MobileNavbar(): ReactElement {
+    const [isToggled, setIsToggled] = useState(false);
+
+    const handleMenuOpen = () => setIsToggled((prev) => !prev);
+    return (
+        <div className={styles.mobileWrapper}>
+            <button
+                onClick={handleMenuOpen}
+                className={`${styles.menuButton} ${isToggled ? styles.toggled : ''}`}
+            >
+                <span className={styles.buttonLine} />
+            </button>
+        </div>
     );
 }
 
 export default function Navbar(): ReactElement {
     const { isMobileView } = useMobileView();
 
-    return isMobileView ? <h1>mobile</h1> : <DesktopNavbar />;
+    return <MobileNavbar />;
 }

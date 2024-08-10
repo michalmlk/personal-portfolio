@@ -28,10 +28,7 @@ const items: ProjectItem[] = [
 export default function ProjectsSection(): ReactElement {
     return (
         <div className={styles.wrapper} id='projects'>
-            <h1
-                className='text-transparent mb-2 bg-gradient-to-r from-primary to-secondary bg-clip-text text-4xl font-extrabold'
-                style={{ color: 'transparent' }}
-            >
+            <h1 className="section-header">
                 Projects
             </h1>
             <div className={styles.list}>

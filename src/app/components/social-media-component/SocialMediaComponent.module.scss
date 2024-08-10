@@ -21,6 +21,11 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      transition: 0.2s ease;
+
+      &:hover {
+        transform: scale(1.1);
+      }
     }
 
 

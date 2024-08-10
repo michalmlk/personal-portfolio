@@ -13,7 +13,7 @@ export default function CVSection(): ReactElement {
                     dolorem doloribus eligendi fugiat ipsa iure laudantium maxime, mollitia officia
                     omnis optio pariatur repellat, sapiente sed tenetur velit veniam.
                 </p>
-                <Button label='Download CV' size='lg' outlined primary={true} />
+                <Button label='Download CV' size='lg' primary={true} />
             </div>
         </section>
     );
