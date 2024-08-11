@@ -1,10 +1,8 @@
-'use client';
-
 import { ReactElement } from 'react';
 import { Button } from '@/app/components/ui/button/Button';
 import styles from './CVSection.module.scss';
 
-export default function CVSection(): ReactElement {
+export default async function CVSection(): Promise<ReactElement> {
     return (
         <section className={styles.wrapper}>
             <div className='my-8 flex flex-col items-center gap-8 text-center'>

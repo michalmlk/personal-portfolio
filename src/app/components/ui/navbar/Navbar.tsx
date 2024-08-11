@@ -18,11 +18,11 @@ function DesktopNavbar(): ReactElement {
                 <button className={styles.navItem} onClick={() => scrollToElement('about')}>
                     About
                 </button>
-                <button className={styles.navItem} onClick={() => scrollToElement('projects')}>
-                    Projects
-                </button>
                 <button className={styles.navItem} onClick={() => scrollToElement('tech-stack')}>
                     Tech stack
+                </button>
+                <button className={styles.navItem} onClick={() => scrollToElement('projects')}>
+                    Projects
                 </button>
             </div>
         </>

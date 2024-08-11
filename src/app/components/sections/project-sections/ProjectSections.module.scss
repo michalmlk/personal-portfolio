@@ -14,8 +14,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    max-width: 580px;
+    max-width: var(--section-max-width);
     gap: 4rem;
-    width: 100%;
   }
 }
