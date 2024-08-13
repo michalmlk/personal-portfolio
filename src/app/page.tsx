@@ -1,17 +1,35 @@
 import Hero from '@/app/components/hero/Hero';
-import CVSection from '@/app/components/sections/cv-section/CVSection';
 import ProjectsSection from '@/app/components/sections/project-sections/ProjectsSection';
-import Navbar from '@/app/components/ui/navbar/Navbar';
 import TechStackSection from '@/app/components/sections/tech-stack/TechStackSection';
 import { PageFooter } from '@/app/components/ui/page-footer/PageFooter';
 import { SocialMediaComponent } from '@/app/components/social-media-component/SocialMediaComponent';
+import { performRequest } from '@/app/lib/datocms';
 
-export default function Home() {
+const HOME_QUERY = `
+query HomePage {
+    page(filter: {label: { eq: "Home"}}) {
+        id,
+        label,
+        sections {
+            __typename,
+            ...on HeroSectionRecord {
+                    id,
+                    heroTitle,
+                    heroImage {
+                        url
+                    }
+                    heroSubtitle,
+                    heroDescription
+                }
+            }
+        }
+    }
+`;
+
+export default async function Home() {
     return (
         <main className='flex min-h-screen flex-col'>
-            <Navbar />
             <Hero />
-            <CVSection />
             <TechStackSection />
             <ProjectsSection />
             <PageFooter>

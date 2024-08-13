@@ -99,6 +99,10 @@ body {
         animation: grad 1.5s infinite alternate;
         transition: background-position 1s ease;
     }
+
+    .page-wrapper {
+        padding-top: var(--topbar-height);
+    }
 }
 
 html {
