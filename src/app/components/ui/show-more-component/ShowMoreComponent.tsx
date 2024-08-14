@@ -1,6 +1,6 @@
 'use client';
 
-import { ReactElement, ReactNode, useState, Suspense } from 'react';
+import { ReactNode, useState, Suspense } from 'react';
 import { Button } from '@/app/components/ui/button/Button';
 import styles from './ShowMoreComponent.module.scss';
 
@@ -9,21 +9,15 @@ interface ShowMoreComponentProps<T> {
     renderItem: (item: T) => ReactNode;
 }
 
-export function ShowMoreComponent<T>({
-    items,
-    renderItem,
-}: ShowMoreComponentProps<T>): ReactElement {
+export function ShowMoreComponent<T>({ items, renderItem }: ShowMoreComponentProps<T>): ReactNode {
     const [showMore, setShowMore] = useState(false);
-    const numOfPinnedItems = items.filter((item) => !!item.isPinned).length;
 
     const handleShowMore = () => {
         setShowMore((prev) => !prev);
     };
 
-    const [pinnedItems, restItems] = [
-        items.slice(0, numOfPinnedItems),
-        items.slice(numOfPinnedItems),
-    ];
+    const pinnedItems = items.filter((item) => item.pinned);
+    const restItems = items.filter((item) => !item.pinned);
 
     return (
         <div className={styles.wrapper}>

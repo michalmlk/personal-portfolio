@@ -16,6 +16,13 @@
     height: 256px;
     overflow: hidden;
     border-radius: 9999px;
+    position: relative;
+
+    img {
+      width: unset !important;
+      height: 256px;
+      position: absolute;
+    }
   }
 
   .heading {

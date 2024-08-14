@@ -1,32 +1,31 @@
-import { ReactElement } from 'react';
+import { ReactNode } from 'react';
 import Image from 'next/image';
 import avatar from '../../../../public/avatar.jpg';
 import styles from './Hero.module.scss';
 import { Button } from '@/app/components/ui/button/Button';
 
+interface HeroProps {
+    title: string;
+    subtitle: string;
+    description: string;
+    imageUrl: string;
+}
 
-const HERO_SECTION_QUERY = `
-    query 
-`
-
-export default async function Hero(): Promise<ReactElement> {
+export default async function Hero(props: HeroProps): Promise<ReactNode> {
+    const { title, subtitle, description, imageUrl } = props;
     return (
         <>
             <section className={styles.wrapper} id='about'>
                 <div className={styles.image}>
-                    <Image src={avatar} alt='my photo' className='h-full max-w-fit' />
+                    <Image src={imageUrl} alt='my photo' className='h-full max-w-fit' fill />
                 </div>
                 <div className={styles.heading}>
-                    <h1 className='section-header'>Hi, I am Michał</h1>
-                    <h2 className='text-l font-light'>Creative frontend developer ⚡️</h2>
+                    <h1 className='section-header'>{title}</h1>
+                    <h2 className='text-l font-light'>{subtitle}</h2>
                 </div>
             </section>
-            <div className='my-8 px-8 flex flex-col items-center gap-8 text-center'>
-                <p className='md:text-md text-sm font-light max-w-[580px]'>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet dicta dignissimos
-                    dolorem doloribus eligendi fugiat ipsa iure laudantium maxime, mollitia officia
-                    omnis optio pariatur repellat, sapiente sed tenetur velit veniam.
-                </p>
+            <div className='my-8 flex flex-col items-center gap-8 px-8 text-center'>
+                <p className='md:text-md max-w-[580px] text-sm font-light'>{description}</p>
                 <Button label='Download CV' size='lg' primary={true} />
             </div>
         </>

@@ -1,6 +1,6 @@
 'use client';
 
-import { ReactElement, useState } from 'react';
+import { ReactNode, useState } from 'react';
 import { useMobileView } from '@/app/hooks/useMobileView';
 import styles from './Navbar.module.scss';
 
@@ -11,7 +11,7 @@ const scrollToElement = (id: string) => {
     }
 };
 
-function DesktopNavbar(): ReactElement {
+function DesktopNavbar(): ReactNode {
     return (
         <>
             <div className={styles.desktopWrapper}>
@@ -29,7 +29,7 @@ function DesktopNavbar(): ReactElement {
     );
 }
 
-function MobileNavbar(): ReactElement {
+function MobileNavbar(): ReactNode {
     const [isToggled, setIsToggled] = useState(false);
 
     const handleMenuOpen = () => setIsToggled((prev) => !prev);
@@ -86,7 +86,7 @@ function MobileNavbar(): ReactElement {
     );
 }
 
-export default function Navbar(): ReactElement {
+export default function Navbar(): ReactNode {
     const { isMobileView } = useMobileView();
 
     return isMobileView ? <MobileNavbar /> : <DesktopNavbar />;

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { FC, ReactElement } from 'react';
+import { FC, ReactNode } from 'react';
 import { StyledButton } from '@/app/components/ui/button/Button.styles';
 
 export interface ButtonProps {
@@ -17,7 +17,7 @@ export const Button: FC<ButtonProps> = ({
     size,
     label,
     onClick,
-}): ReactElement => {
+}): ReactNode => {
     return (
         <StyledButton
             type='button'
