@@ -1,22 +1,26 @@
 import Hero from '@/app/components/hero/Hero';
-import CVSection from '@/app/components/sections/cv-section/CVSection';
-import ProjectsSection from '@/app/components/sections/project-sections/ProjectsSection';
-import Navbar from '@/app/components/ui/navbar/Navbar';
-import TechStackSection from '@/app/components/sections/tech-stack/TechStackSection';
-import { PageFooter } from '@/app/components/ui/page-footer/PageFooter';
-import { SocialMediaComponent } from '@/app/components/social-media-component/SocialMediaComponent';
+import TechStackSection from '@/app/components/tech-stack/TechStackSection';
+import { performRequest } from '@/app/lib/datocms';
+import { HOME_QUERY } from '@/app/lib/queries';
 
-export default function Home() {
+export default async function Home() {
+    const {
+        page: { sections },
+    } = await performRequest(HOME_QUERY);
+
+    const { heroTitle, heroImage, heroSubtitle, heroDescription, cvFile } = sections[0];
+    const { technologies } = sections[1];
+
     return (
         <main className='flex min-h-screen flex-col'>
-            <Navbar />
-            <Hero />
-            <CVSection />
-            <TechStackSection />
-            <ProjectsSection />
-            <PageFooter>
-                <SocialMediaComponent />
-            </PageFooter>
+            <Hero
+                title={heroTitle}
+                imageUrl={heroImage.url}
+                subtitle={heroSubtitle}
+                description={heroDescription}
+                cvFile={cvFile}
+            />
+            <TechStackSection technologies={technologies} />
         </main>
     );
 }

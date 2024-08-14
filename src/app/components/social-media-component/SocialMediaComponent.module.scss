@@ -8,7 +8,6 @@
   .copyRightParagraph {
     font-size: var(--font-size-sm);
     font-weight: lighter;
-    color: #ffffff;
   }
 
   .list {
@@ -22,6 +21,7 @@
       justify-content: center;
       align-items: center;
       transition: 0.2s ease;
+      cursor: pointer;
 
       &:hover {
         transform: scale(1.1);

@@ -18,6 +18,7 @@
     --color-bg-light: #edf7fa;
 
     --section-padding: var(--spacing-lg) var(--spacing-md);
+    --section-max-width: 580px;
 
     --color-primary--hover: #e13c3c;
 
@@ -26,11 +27,17 @@
     --font-md: 14px;
     --font-lg: 16px;
 
+    --font-xl: 32px;
+
+    --font-weight-bold: 600;
+    --font-weight-extrabold: 700;
+
     /*    spacings*/
     --spacing-xs: 5px;
     --spacing-sm: 10px;
     --spacing-md: 20px;
     --spacing-lg: 40px;
+    --spacing-xl: 56px;
 
     /*    button */
     --button-padding-sm: 10px 16px;
@@ -52,11 +59,24 @@
     --topbar-font-size: var(--font-md);
     --topbar-menu-items-gap: var(--spacing-md);
     --topbar-height: 70px;
+    --topbar-z-index: 99999;
+    --topbar-backdrop-blur-value: 10px;
+    --topbar-background-color: #ffffff;
+
+    /*mobile menu*/
+    --menu-button-line-height: 3px;
+    --menu-button-size: 40px;
+
+    --menu-list-background-color:rgba(255, 255, 255, 0.7);
 
     /*    site container*/
     --padding-sm: 2rem;
     --padding-md: 4rem;
     --padding-lg: 6rem;
+
+/*    page footer*/
+    --page-footer-min-height: 25vh;
+    --page-footer-background-color: #ffffff;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -92,6 +112,10 @@ body {
         background-position: left;
         animation: grad 1.5s infinite alternate;
         transition: background-position 1s ease;
+    }
+
+    .page-wrapper {
+        padding-top: var(--topbar-height);
     }
 }
 

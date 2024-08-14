@@ -1,8 +1,10 @@
 'use client';
 
-import { ReactElement, useState } from 'react';
+import { ReactNode, useState } from 'react';
 import { useMobileView } from '@/app/hooks/useMobileView';
 import styles from './Navbar.module.scss';
+import Link from 'next/link';
+import { usePathname, useRouter } from 'next/navigation';
 
 const scrollToElement = (id: string) => {
     const el = document.getElementById(id);
@@ -11,83 +13,94 @@ const scrollToElement = (id: string) => {
     }
 };
 
-function DesktopNavbar(): ReactElement {
-    return (
-        <>
-            <div className={styles.desktopWrapper}>
-                <button className={styles.navItem} onClick={() => scrollToElement('about')}>
-                    About
-                </button>
-                <button className={styles.navItem} onClick={() => scrollToElement('projects')}>
-                    Projects
-                </button>
-                <button className={styles.navItem} onClick={() => scrollToElement('tech-stack')}>
-                    Tech stack
-                </button>
-            </div>
-        </>
-    );
+interface NavItemProps {
+    label: string;
+    id: string;
+    href?: string;
 }
 
-function MobileNavbar(): ReactElement {
+const NAV_CONFIG = {
+    homeRoute: '/',
+};
+
+const NAV_ITEMS: NavItemProps[] = [
+    {
+        label: 'About',
+        id: 'about',
+    },
+    {
+        label: 'Tech stack',
+        id: 'tech-stack',
+    },
+    {
+        label: 'Projects',
+        id: 'projects',
+        href: 'projects',
+    },
+];
+
+export default function Navbar(): ReactNode {
     const [isToggled, setIsToggled] = useState(false);
+    const { isMobileView } = useMobileView();
+    const pathname = usePathname();
+    const navigate = useRouter();
+
+    const { homeRoute } = NAV_CONFIG;
 
     const handleMenuOpen = () => setIsToggled((prev) => !prev);
+
+    const navigateToSection = (id: string) => {
+        if (id && isMobileView) {
+            setIsToggled((prev) => !prev);
+        }
+        if (pathname !== homeRoute) {
+            navigate.push('/');
+        } else {
+            scrollToElement(id);
+        }
+    };
+
+    const renderNavItem = (item: NavItemProps): ReactNode => {
+        const { label, id, href } = item;
+        return href ? (
+            <Link
+                href={href}
+                className={`${isMobileView ? styles.item : styles.navItem}`}
+                onClick={() => {
+                    setIsToggled(false);
+                }}
+            >
+                {label}
+            </Link>
+        ) : (
+            <button
+                className={`${isMobileView ? styles.item : styles.navItem}`}
+                onClick={() => navigateToSection(id)}
+            >
+                {label}
+            </button>
+        );
+    };
+
     return (
         <>
-            <div className={styles.mobileWrapper}>
-                <button
-                    onClick={handleMenuOpen}
-                    className={`${styles.menuButton} ${isToggled ? styles.toggled : ''}`}
-                >
-                    <span className={styles.buttonLine} />
-                </button>
+            <div className={`${isMobileView ? styles.mobileWrapper : styles.desktopWrapper}`}>
+                {isMobileView ? (
+                    <button
+                        onClick={handleMenuOpen}
+                        className={`${styles.menuButton} ${isToggled ? styles.toggled : ''}`}
+                    >
+                        <span className={styles.buttonLine} />
+                    </button>
+                ) : (
+                    <>{NAV_ITEMS.length && NAV_ITEMS.map((item) => renderNavItem(item))}</>
+                )}
             </div>
-            <div className={`${styles.itemsList} ${isToggled ? styles.toggled : ''}`}>
-                <button
-                    className={styles.item}
-                    onClick={() => {
-                        setIsToggled(false);
-                        scrollToElement('about');
-                    }}
-                >
-                    About
-                </button>
-                <button
-                    className={styles.item}
-                    onClick={() => {
-                        setIsToggled(false);
-                        scrollToElement('tech-stack');
-                    }}
-                >
-                    Tech stack
-                </button>
-                <button
-                    className={styles.item}
-                    onClick={() => {
-                        setIsToggled(false);
-                        scrollToElement('projects');
-                    }}
-                >
-                    Projects
-                </button>
-                <button
-                    className={styles.item}
-                    onClick={() => {
-                        setIsToggled(false);
-                        scrollToElement('contact');
-                    }}
-                >
-                    Contact me!
-                </button>
-            </div>
-            )
+            {isMobileView && (
+                <div className={`${styles.itemsList} ${isToggled ? styles.toggled : ''}`}>
+                    {NAV_ITEMS.length && NAV_ITEMS.map((item) => renderNavItem(item))}
+                </div>
+            )}
         </>
     );
-}
-
-export default function Navbar(): ReactElement {
-    const { isMobileView } = useMobileView();
-
-    return isMobileView ? <MobileNavbar /> : <DesktopNavbar />;
 }

@@ -1,6 +1,6 @@
 'use client';
 
-import { ReactElement } from 'react';
+import { ReactNode } from 'react';
 import styles from './SkillItem.module.scss';
 import Image, { StaticImageData } from 'next/image';
 
@@ -10,7 +10,7 @@ interface SkillItemProps {
     isPinned?: boolean;
 }
 
-export default function SkillItem({ icon, label, isPinned = false }: SkillItemProps): ReactElement {
+export default function SkillItem({ icon, label, isPinned = false }: SkillItemProps): ReactNode {
     const size = isPinned ? 120 : 60;
 
     return (

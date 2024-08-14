@@ -1,6 +1,6 @@
 'use client';
 
-import React, { FC, ReactElement } from 'react';
+import { FC, ReactNode } from 'react';
 import { StyledButton } from '@/app/components/ui/button/Button.styles';
 
 export interface ButtonProps {
@@ -9,6 +9,9 @@ export interface ButtonProps {
     size: 'sm' | 'md' | 'lg';
     label: string;
     onClick?: () => void;
+    as?: string;
+    href?: string;
+    target?: string;
 }
 
 export const Button: FC<ButtonProps> = ({
@@ -17,15 +20,20 @@ export const Button: FC<ButtonProps> = ({
     size,
     label,
     onClick,
-}): ReactElement => {
+    as,
+    href,
+    target,
+}): ReactNode => {
     return (
         <StyledButton
-            type='button'
             className={'shared-button'}
             size={size}
             primary={primary}
             onClick={onClick}
             disabled={disabled}
+            as={as}
+            href={href}
+            target={target}
         >
             {label}
         </StyledButton>

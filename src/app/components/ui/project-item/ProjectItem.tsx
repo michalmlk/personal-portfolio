@@ -1,46 +1,33 @@
 import Image from 'next/image';
-import { ReactElement } from 'react';
-import styled from 'styled-components';
+import { ReactNode } from 'react';
+import styles from './ProjectItem.module.scss';
+import githubIcon from '@/app/assets/github-icon.svg';
 
 export interface ProjectItem {
     title: string;
     description: string;
-    image: string;
-    url: string;
+    imageUrl: string;
+    technologies: string;
+    repositoryUrl: string;
+    key?: number;
 }
 
-export const StyledProjectWrapper = styled.div`
-    flex-grow: 1;
-    background-color: #fff;
-    border-bottom: 1px solid #000000;
-    padding: var(--spacing-md);
-
-    display: grid;
-    grid-template-areas:
-        'image title'
-        'image details'
-        'image description';
-
-    width: 100%;
-    grid-row-gap: 1rem;
-
-    h1 {
-        grid-area: title;
-    }
-
-    p {
-        grid-area: description;
-    }
-`;
-
-export default function ProjectItem(project: ProjectItem): ReactElement {
-    const { title, description, image, url } = project;
+export default function ProjectItem(project: ProjectItem): ReactNode {
+    const { title, description, imageUrl, technologies, repositoryUrl } = project;
 
     return (
-        <StyledProjectWrapper>
-            <h1 className='text-lg font-extrabold'>{title}</h1>
-            <p className='text-sm'>{description}</p>
-            <Image src={image} alt='test' width={200} height={100} />
-        </StyledProjectWrapper>
+        <div className={styles.wrapper}>
+            <h1 className={styles.title}>
+                {title}
+                <a href={repositoryUrl} target='_blank'>
+                    <Image src={githubIcon} alt='github icon' width={22} height={22} />
+                </a>
+            </h1>
+            <p className={styles.details}>{technologies}</p>
+            <p className={styles.description}>{description}</p>
+            <div className={styles.image}>
+                <Image src={imageUrl} alt={title} width={200} height={200} />
+            </div>
+        </div>
     );
 }

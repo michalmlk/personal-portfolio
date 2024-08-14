@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 
 export const StyledButton = styled.button<{
+    as?: string;
+    target?: string;
+    href?: string;
     primary?: boolean;
     size?: 'sm' | 'md' | 'lg';
 }>`
