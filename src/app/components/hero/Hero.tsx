@@ -1,6 +1,5 @@
 import { ReactNode } from 'react';
 import Image from 'next/image';
-import avatar from '../../../../public/avatar.jpg';
 import styles from './Hero.module.scss';
 import { Button } from '@/app/components/ui/button/Button';
 
@@ -9,10 +8,11 @@ interface HeroProps {
     subtitle: string;
     description: string;
     imageUrl: string;
+    cvFile: { filename: string; url: string };
 }
 
 export default async function Hero(props: HeroProps): Promise<ReactNode> {
-    const { title, subtitle, description, imageUrl } = props;
+    const { title, subtitle, description, imageUrl, cvFile } = props;
     return (
         <>
             <section className={styles.wrapper} id='about'>
@@ -26,7 +26,14 @@ export default async function Hero(props: HeroProps): Promise<ReactNode> {
             </section>
             <div className='my-8 flex flex-col items-center gap-8 px-8 text-center'>
                 <p className='md:text-md max-w-[580px] text-sm font-light'>{description}</p>
-                <Button label='Download CV' size='lg' primary={true} />
+                <Button
+                    as='a'
+                    label='Download CV'
+                    size='lg'
+                    primary={true}
+                    href={`${cvFile.url}?dl=${cvFile.filename}`}
+                    target='_blank'
+                />
             </div>
         </>
     );

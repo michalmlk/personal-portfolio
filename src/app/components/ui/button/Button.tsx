@@ -9,6 +9,9 @@ export interface ButtonProps {
     size: 'sm' | 'md' | 'lg';
     label: string;
     onClick?: () => void;
+    as?: string;
+    href?: string;
+    target?: string;
 }
 
 export const Button: FC<ButtonProps> = ({
@@ -17,15 +20,20 @@ export const Button: FC<ButtonProps> = ({
     size,
     label,
     onClick,
+    as,
+    href,
+    target,
 }): ReactNode => {
     return (
         <StyledButton
-            type='button'
             className={'shared-button'}
             size={size}
             primary={primary}
             onClick={onClick}
             disabled={disabled}
+            as={as}
+            href={href}
+            target={target}
         >
             {label}
         </StyledButton>

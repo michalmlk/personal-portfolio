@@ -12,7 +12,11 @@ query HomePage {
                         url
                     }
                     heroSubtitle,
-                    heroDescription
+                    heroDescription,
+                    cvFile {
+                        url,
+                      filename
+                    }
             }
             ...on TechStackSectionRecord {
               id,

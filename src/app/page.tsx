@@ -8,7 +8,7 @@ export default async function Home() {
         page: { sections },
     } = await performRequest(HOME_QUERY);
 
-    const { heroTitle, heroImage, heroSubtitle, heroDescription } = sections[0];
+    const { heroTitle, heroImage, heroSubtitle, heroDescription, cvFile } = sections[0];
     const { technologies } = sections[1];
 
     return (
@@ -18,6 +18,7 @@ export default async function Home() {
                 imageUrl={heroImage.url}
                 subtitle={heroSubtitle}
                 description={heroDescription}
+                cvFile={cvFile}
             />
             <TechStackSection technologies={technologies} />
         </main>

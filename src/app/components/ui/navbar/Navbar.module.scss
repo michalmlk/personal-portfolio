@@ -6,7 +6,7 @@
   width: 100%;
   height: var(--topbar-height);
   gap: var(--topbar-menu-items-gap);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(var(--topbar-backdrop-blur-value));
   padding: var(--spacing-xs) var(--spacing-md);
   font-weight: bold;
 
@@ -14,7 +14,7 @@
     color: transparent;
     background-image: linear-gradient(45deg, var(--color-secondary), var(--color-primary));
     background-clip: text;
-    font-weight: 700;
+    font-weight: bold;
     background-size: 300%;
     background-position: left;
   }
@@ -26,22 +26,24 @@
   align-items: center;
   width: 100%;
   height: var(--topbar-height);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(var(--topbar-backdrop-blur-value));
   padding: var(--spacing-xs) var(--spacing-md);
   font-weight: bold;
+  background-color: var(--topbar-background-color);
+  z-index: var(--topbar-z-index);
 
 
   .menuButton {
     font-weight: lighter;
     position: relative;
-    width: 40px;
-    height: 40px;
+    width: var(--menu-button-size);
+    height: var(--menu-button-size);
 
     .buttonLine {
       display: block;
       position: absolute;
       background-color: var(--color-dark);
-      height: 3px;
+      height: var(--menu-button-line-height);
       width: 100%;
       top: calc(50% - 5px);
       transition: .2s ease;
@@ -52,7 +54,7 @@
         display: block;
         width: 100%;
         top: 10px;
-        height: 3px;
+        height: var(--menu-button-line-height);
         background-color: var(--color-dark);
         transition: .2s ease;
       }
@@ -83,6 +85,8 @@
   backdrop-filter: blur(10px);
   transform: translateY(-250px);
   transition: .2s ease;
+  z-index: var(--topbar-z-index);
+  background-color: var(--menu-list-background-color);
 
   &.toggled {
     transform: translateY(0);
