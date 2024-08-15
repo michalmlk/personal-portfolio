@@ -6,14 +6,14 @@ import githubIcon from '@/app/assets/github-icon.svg';
 export interface ProjectItem {
     title: string;
     description: string;
-    imageUrl: string;
+    image: { url: string };
     technologies: string;
     repositoryUrl: string;
     key?: number;
 }
 
 export default function ProjectItem(project: ProjectItem): ReactNode {
-    const { title, description, imageUrl, technologies, repositoryUrl } = project;
+    const { title, description, image, technologies, repositoryUrl } = project;
 
     return (
         <div className={styles.wrapper}>
@@ -26,7 +26,7 @@ export default function ProjectItem(project: ProjectItem): ReactNode {
             <p className={styles.details}>{technologies}</p>
             <p className={styles.description}>{description}</p>
             <div className={styles.image}>
-                <Image src={imageUrl} alt={title} width={200} height={200} />
+                <Image src={image.url} alt={title} height={270} width={320} />
             </div>
         </div>
     );

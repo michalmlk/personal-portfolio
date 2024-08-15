@@ -44,11 +44,14 @@ export const PROJECTS_QUERY = `
                 title, 
                 description,
                 technologies,
-                repositoryUrl
+                repositoryUrl,
+                image {
+                    url
+                }
               }
             }
           }
-        }   
+        } 
 }`;
 
 export const FOOTER_QUERY = `
