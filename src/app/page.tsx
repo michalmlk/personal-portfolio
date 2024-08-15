@@ -1,7 +1,7 @@
 import Hero from '@/app/components/hero/Hero';
 import TechStackSection from '@/app/components/tech-stack/TechStackSection';
-import { performRequest } from '@/app/lib/datocms';
-import { HOME_QUERY } from '@/app/lib/queries';
+import { performRequest } from '@/app/api/datocms';
+import { HOME_QUERY } from '@/app/api/queries';
 
 export default async function Home() {
     const {
