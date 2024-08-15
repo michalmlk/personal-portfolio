@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactNode, AwaitedReactNode } from 'react';
 import Image from 'next/image';
 import styles from './Hero.module.scss';
 import { Button } from '@/app/components/ui/button/Button';
@@ -11,7 +11,7 @@ interface HeroProps {
     cvFile: { filename: string; url: string };
 }
 
-export default async function Hero(props: HeroProps): Promise<ReactNode> {
+export default async function Hero(props: HeroProps): Promise<AwaitedReactNode> {
     const { title, subtitle, description, imageUrl, cvFile } = props;
     return (
         <>
@@ -28,7 +28,7 @@ export default async function Hero(props: HeroProps): Promise<ReactNode> {
                 <p className='md:text-md max-w-[580px] text-sm font-light'>{description}</p>
                 <Button
                     as='a'
-                    label='Download CV'
+                    label='Download resume'
                     size='lg'
                     primary={true}
                     href={`${cvFile.url}?dl=${cvFile.filename}`}

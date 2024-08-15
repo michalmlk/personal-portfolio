@@ -15,8 +15,9 @@ export function ShowMoreComponent<T>({ items, renderItem }: ShowMoreComponentPro
     const handleShowMore = () => {
         setShowMore((prev) => !prev);
     };
-
-    const pinnedItems = items.filter((item) => item.pinned);
+    //@ts-ignore generic types
+    const pinnedItems = items.filter((item) => !!item.pinned);
+    //@ts-ignore generic type
     const restItems = items.filter((item) => !item.pinned);
 
     return (

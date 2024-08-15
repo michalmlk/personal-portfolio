@@ -1,5 +1,5 @@
-import { performRequest } from '@/app/lib/datocms';
-import { PROJECTS_QUERY } from '@/app/lib/queries';
+import { performRequest } from '@/app/api/datocms';
+import { PROJECTS_QUERY } from '@/app/api/queries';
 import ProjectItem from '@/app/components/ui/project-item/ProjectItem';
 import styles from './styles.module.scss';
 
@@ -15,9 +15,7 @@ export default async function Projects() {
                 <h1 className='section-header'>Projects</h1>
                 <div className={styles.list}>
                     {projectsList.length ? (
-                        projectsList.map((project: ProjectItem, idx) => (
-                            <ProjectItem key={idx} {...project} />
-                        ))
+                        projectsList.map((project, idx) => <ProjectItem key={idx} {...project} />)
                     ) : (
                         <></>
                     )}

@@ -35,7 +35,7 @@ const meta = {
                 isPinned: false,
             },
         ],
-        renderItem: (item) => {
+        renderItem: (item: any) => {
             return (
                 <div>
                     <h1>{item.label}</h1>

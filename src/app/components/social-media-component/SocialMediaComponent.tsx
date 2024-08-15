@@ -1,8 +1,8 @@
-import { FC, ReactNode } from 'react';
+import { FC, ReactNode, AwaitedReactNode } from 'react';
 import styles from './SocialMediaComponent.module.scss';
 import Image from 'next/image';
-import { performRequest } from '@/app/lib/datocms';
-import { FOOTER_QUERY } from '@/app/lib/queries';
+import { performRequest } from '@/app/api/datocms';
+import { FOOTER_QUERY } from '@/app/api/queries';
 
 interface SocialMediaItemProps {
     name: string;
@@ -19,7 +19,7 @@ const SocialMediaItem: FC<SocialMediaItemProps> = (props): ReactNode => {
     );
 };
 
-export default async function SocialMediaComponent(): Promise<ReactNode> {
+export default async function SocialMediaComponent(): Promise<AwaitedReactNode> {
     const { component } = await performRequest(FOOTER_QUERY);
 
     const {
