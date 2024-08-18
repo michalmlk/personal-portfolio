@@ -34,7 +34,7 @@ query HomePage {
 
 export const PROJECTS_QUERY = `
     query ProjectsPage {
-        page(filter: {label: { eq: "Projects"}}) {
+        page(filter: {label: { eq: "Projects" }}) {
           id,
           label,
           sections {
