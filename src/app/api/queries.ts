@@ -34,7 +34,7 @@ query HomePage {
 
 export const PROJECTS_QUERY = `
     query ProjectsPage {
-        page(filter: {label: { eq: "Projects"}}) {
+        page(filter: {label: { eq: "Projects" }}) {
           id,
           label,
           sections {
@@ -44,11 +44,14 @@ export const PROJECTS_QUERY = `
                 title, 
                 description,
                 technologies,
-                repositoryUrl
+                repositoryUrl,
+                image {
+                    url
+                }
               }
             }
           }
-        }   
+        } 
 }`;
 
 export const FOOTER_QUERY = `
