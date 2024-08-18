@@ -17,6 +17,8 @@
     --color-light: #8695a4;
     --color-bg-light: #edf7fa;
 
+    --color-danger: #b20000;
+
     --section-padding: var(--spacing-lg) var(--spacing-md);
     --section-max-width: 580px;
 
@@ -67,16 +69,18 @@
     --menu-button-line-height: 3px;
     --menu-button-size: 40px;
 
-    --menu-list-background-color:rgba(255, 255, 255, 0.7);
+    --menu-list-background-color: rgba(255, 255, 255, 0.7);
 
     /*    site container*/
     --padding-sm: 2rem;
     --padding-md: 4rem;
     --padding-lg: 6rem;
 
-/*    page footer*/
+    /*    page footer*/
     --page-footer-min-height: 25vh;
     --page-footer-background-color: #ffffff;
+
+    --form-max-width: 480px;
 }
 
 @media (prefers-color-scheme: dark) {

@@ -1,5 +1,5 @@
-import { generateSubscription, performRequest } from '@/app/api/datocms';
-import { PROJECTS_QUERY } from '@/app/api/queries';
+import { generateSubscription, performRequest } from '@/app/api/datocms/datocms';
+import { PROJECTS_QUERY } from '@/app/api/datocms/queries';
 import styles from './styles.module.scss';
 import RealtimeProjectsList from '@/app/projects/components/ProjectsList/ProjectsList';
 

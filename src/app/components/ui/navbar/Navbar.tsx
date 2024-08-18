@@ -37,6 +37,11 @@ const NAV_ITEMS: NavItemProps[] = [
         id: 'projects',
         href: 'projects',
     },
+    {
+        label: 'Contact',
+        id: 'contact',
+        href: 'contact',
+    },
 ];
 
 export default function Navbar(): ReactNode {

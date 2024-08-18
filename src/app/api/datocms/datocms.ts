@@ -1,5 +1,5 @@
 import { executeQuery } from '@datocms/cda-client';
-import { HOME_QUERY } from '@/app/api/queries';
+import { HOME_QUERY } from '@/app/api/datocms/queries';
 
 export const performRequest = (query, options?): any => {
     return executeQuery(query, {

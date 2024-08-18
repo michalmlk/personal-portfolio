@@ -1,7 +1,7 @@
 import Hero from '@/app/components/hero/Hero';
 import TechStackSection from '@/app/components/tech-stack/TechStackSection';
-import { generateSubscription, performRequest } from '@/app/api/datocms';
-import { HOME_QUERY, PROJECTS_QUERY } from '@/app/api/queries';
+import { generateSubscription, performRequest } from '@/app/api/datocms/datocms';
+import { HOME_QUERY, PROJECTS_QUERY } from '@/app/api/datocms/queries';
 
 export default async function Home() {
     const subscription = await generateSubscription(HOME_QUERY);

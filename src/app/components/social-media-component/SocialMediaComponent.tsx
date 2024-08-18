@@ -1,8 +1,8 @@
 import { FC, ReactNode, AwaitedReactNode } from 'react';
 import styles from './SocialMediaComponent.module.scss';
 import Image from 'next/image';
-import { performRequest } from '@/app/api/datocms';
-import { FOOTER_QUERY } from '@/app/api/queries';
+import { performRequest } from '@/app/api/datocms/datocms';
+import { FOOTER_QUERY } from '@/app/api/datocms/queries';
 
 interface SocialMediaItemProps {
     name: string;

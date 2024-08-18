@@ -4,7 +4,7 @@ import { ReactNode } from 'react';
 import styles from '@/app/projects/styles.module.scss';
 import ProjectItem from '@/app/components/ui/project-item/ProjectItem';
 import { useQuerySubscription } from 'react-datocms';
-import { QuerySubscriptionStatuses } from '@/app/api/model';
+import { QuerySubscriptionStatuses } from '@/app/api/datocms/model';
 
 export default function RealtimeProjectsList({ subscription }): ReactNode {
     const { data, error, status } = useQuerySubscription(subscription);
